@@ -22,4 +22,15 @@ class ApiApplicationTests {
 		assertThat(applicationContext.getApplicationName()).isNotEmpty();
 	}
 
+	@Test
+	void shouldHavePropertiesConfigured() {
+		assertThat(applicationContext.getEnvironment().getProperty("spring.application.name"))
+			.isNotNull();
+	}
+
+	@Test
+	void shouldHaveBeanDefinitions() {
+		assertThat(applicationContext.getBeanDefinitionCount()).isGreaterThan(0);
+	}
+
 }
